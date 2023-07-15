@@ -1,0 +1,31 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: USUARIO-SERVICE
+          uri: lb://USUARIO-SERVICE #Esto significa que el lb (load balancer buscara ese servicio en esa ruta)
+          predicates:
+            - Path=/api/v1/users/** #buscara en todas las rutas que sean usuarios
+        - id: HOTEL-SERVICE
+          uri: lb://HOTEL-SERVICE #Esto significa que el lb (load balancer buscara ese servicio en esa ruta)
+          predicates:
+            - Path=/api/v1/hotels/** #buscara en todas las rutas que sean usuarios
+        - id: CALIFICACION-SERVICE
+          uri: lb://CALIFICACION-SERVICE #Esto significa que el lb (load balancer buscara ese servicio en esa ruta)
+          predicates:
+            - Path=/api/v1/calificaciones/** #buscara en todas las rutas que sean usuarios
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+

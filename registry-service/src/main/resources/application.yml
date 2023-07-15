@@ -1,0 +1,9 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost #Si estuviera en docker pusieramos el nombre del contenedor o el server donde se aloje
+  client:
+    register-with-eureka: false #es false porque estos servicios no se registran aqui es donde se van a registar los demas
+    fetch-registry: false #lo ponemos en false porque no se va a buscar si fuera tru se buscaria a si mismo

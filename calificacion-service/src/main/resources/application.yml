@@ -1,0 +1,24 @@
+
+server:
+  port: 8083
+
+spring:
+  config:
+    enabled: false
+    import: optional:configserver:instead
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/Microservices
+      database: Microservices
+
+  application:
+    name: CALIFICACION-SERVICE #Nombre del microservicio
+
+eureka:
+  instance: #indicamos la instancia
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
