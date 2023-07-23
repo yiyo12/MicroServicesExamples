@@ -11,6 +11,8 @@ spring:
           uri: lb://USUARIO-SERVICE #Esto significa que el lb (load balancer buscara ese servicio en esa ruta)
           predicates:
             - Path=/api/v1/users/** #buscara en todas las rutas que sean usuarios
+          filters:
+            - AuthFilter
         - id: HOTEL-SERVICE
           uri: lb://HOTEL-SERVICE #Esto significa que el lb (load balancer buscara ese servicio en esa ruta)
           predicates:
@@ -19,6 +21,10 @@ spring:
           uri: lb://CALIFICACION-SERVICE #Esto significa que el lb (load balancer buscara ese servicio en esa ruta)
           predicates:
             - Path=/api/v1/calificaciones/** #buscara en todas las rutas que sean usuarios
+        - id: AUTH-SERVICE
+          uri: lb://AUTH-SERVICE #Esto significa que el lb (load balancer buscara ese servicio en esa ruta)
+          predicates:
+            - Path=/api/v1/auth/** #buscara en todas las rutas que sean usuarios
 
 eureka:
   instance:

@@ -1,0 +1,20 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: AUTH-SERVICE
+  config:
+    import: optional:configserver:http://localhost:8090
+
+
+
+jwt:
+  secret: secret
+
+
+admin-path:
+  paths:
+    -
+      uri: "/api/v1/users/save"
+      method: "POST"

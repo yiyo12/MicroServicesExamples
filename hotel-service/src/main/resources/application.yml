@@ -14,13 +14,13 @@ spring:
     show-sql: true
 
   application:
-    name: HOTEL-SERVICE #Nombre del microservicio
+    name: HOTEL-SERVICE
   config:
     ## Si dejamos optional toma el archivo por defecto ademas si quitamos el application name del github( archivo de configuracion )
     ## tomara el nombre de este archivo es decir HOTEL-SERVICE
     import: optional:configserver:http://localhost:8090
   profiles:
-    active:
+    active: prod
 #eureka:
 #  instance: #indicamos la instancia
 #    prefer-ip-address: true
